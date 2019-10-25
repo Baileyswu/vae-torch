@@ -7,9 +7,10 @@ def MNIST(data_path, batch_size, shuffle=True, train=True, condition_on=None, nu
 	img_size, num_channels = 28, 1
 	img_size_scaled = rescale_to
 	transform = torchvision.transforms.Compose([
-		torchvision.transforms.Scale(img_size_scaled),
+		torchvision.transforms.Resize(img_size_scaled),
 		torchvision.transforms.CenterCrop(img_size_scaled),
-		torchvision.transforms.ToTensor()
+		torchvision.transforms.ToTensor(),
+		torchvision.transforms.Normalize((0.5,), (0.5,))
 		])
 	dataset = torchvision.datasets.MNIST(data_path, train, download=True, transform=transform)
 

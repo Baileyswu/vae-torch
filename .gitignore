@@ -1,0 +1,6 @@
+*.pyc
+*.png
+*checkpoint.ipynb
+*.dat
+data/
+ckpt/
